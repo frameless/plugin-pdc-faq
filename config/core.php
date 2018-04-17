@@ -14,7 +14,7 @@ return [
          * Providers specific to the admin.
          */
         'admin'    => [
-
+	        OWC_PDC_FAQ\Core\Metabox\MetaboxServiceProvider::class,
         ]
 
     ],
