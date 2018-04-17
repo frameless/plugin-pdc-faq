@@ -10,7 +10,7 @@ pipelines:
           - vendor-directory
         script:
           - composer install --no-interaction --no-progress --prefer-dist --ignore-platform-reqs
-          - ./vendor/bin/phpunit --testsuite "OWC Samenwerkende Catalogi Plugin Unit Test Suite"
+          - ./vendor/bin/phpunit --testsuite "OWC PDC FAQ Plugin Unit Test Suite"
 
 definitions:
   caches:

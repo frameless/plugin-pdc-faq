@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core\Tests\Config;
+namespace OWC_PDC_FAQ\Core\Tests\Unit\Config;
 
 use OWC_PDC_FAQ\Core\Config;
 use OWC_PDC_FAQ\Core\Tests\Unit\TestCase;

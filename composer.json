@@ -25,8 +25,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "OWC_SC\\Core\\": "./src/Core",
-      "OWC_SC\\Core\\Tests\\": "./tests"
+      "OWC_PDC_FAQ\\Core\\": "./src/Core",
+      "OWC_PDC_FAQ\\Core\\Tests\\": "./tests"
     }
   }
 }
