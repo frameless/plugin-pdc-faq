@@ -1,0 +1,33 @@
+{
+  "name": "plugin/pdc-faq",
+  "description": "PDC Frequently Asked Questions plugin, creates PDC item FAQ section",
+  "authors": [
+    {
+      "name": "Ruud Laan",
+      "email": "ruud@yard.nl",
+      "homepage": "https://www.yarddigital.nl"
+    },
+    {
+      "name": "Edwin Siebel",
+      "email": "edwin@yard.nl",
+      "homepage": "https://www.yarddigital.nl"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "mockery/mockery": "1.0.*",
+    "phpunit/phpunit": "~6.0",
+    "10up/wp_mock": "dev-master",
+    "phpmd/phpmd" : "@stable"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OWC_SC\\Core\\": "./src/Core",
+      "OWC_SC\\Core\\Tests\\": "./tests"
+    }
+  }
+}
+
