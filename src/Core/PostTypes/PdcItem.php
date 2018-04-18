@@ -6,7 +6,7 @@ class PdcItem
 {
 	const faq_group_meta_key   = '_owc_pdc_faq_group';
 	const faq_answer_meta_key  = 'pdc_faq_answer';
-	const faq_elasticsearch_id = 'faq_group';
+
 	/**
 	 * @param $object
 	 * @param $field_name
@@ -21,22 +21,16 @@ class PdcItem
 		return $faqs;
 	}
 
-	public function getFaqsForElasticSearch($additionalPreparedMeta, $post_id)
+	public function getFaqsForElasticSearch($postId)
 	{
-		if ( 'pdc-item' == get_post_type($post_id) ) {
+		$metadata = '';
 
-			$metadata = '';
+		$faqs = get_post_meta($postId, self::faq_group_meta_key, true);
 
-			$faqs = get_post_meta($post_id, self::faq_group_meta_key, true);
-
-			foreach ( $faqs as $faq ) {
-				$metadata .= $faq[ self::faq_answer_meta_key ];
-			}
-			if ( ! empty($metadata) ) {
-				$additionalPreparedMeta[ self::faq_elasticsearch_id ] = $metadata;
-			}
+		foreach ( $faqs as $faq ) {
+			$metadata .= $faq[ self::faq_answer_meta_key ];
 		}
 
-		return $additionalPreparedMeta;
+		return $metadata;
 	}
 }
