@@ -30,6 +30,11 @@ return [
 							'name' => __('Antwoord', 'pdc-faq'),
 							'desc' => _x('Gebruik van HTML is toegestaan', 'Beschrijving bij het Antwoord van de FAQ', 'pdc-faq'),
 							'type' => 'wysiwyg',
+							// Editor settings, see https://codex.wordpress.org/Function_Reference/wp_editor
+							'options' => array(
+								'textarea_rows' => 4,
+								'teeny'         => false
+							),
 						]
 					]
 				]

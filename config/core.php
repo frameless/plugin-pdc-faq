@@ -9,6 +9,7 @@ return [
         /**
          * Global providers.
          */
+	    OWC_PDC_FAQ\Core\RestApi\RestApiServiceProvider::class,
 
 	    /**
          * Providers specific to the admin.
