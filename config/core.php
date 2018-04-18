@@ -10,6 +10,7 @@ return [
          * Global providers.
          */
 	    OWC_PDC_FAQ\Core\RestApi\RestApiServiceProvider::class,
+	    OWC_PDC_FAQ\Core\ElasticSearch\ElasticSearchServiceProvider::class,
 
 	    /**
          * Providers specific to the admin.
