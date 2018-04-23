@@ -23,7 +23,7 @@ class MetaboxServiceProvider extends ServiceProvider
 	public function registerMetaboxes($pdcBaseMetaboxes)
 	{
 
-		$configMetaboxes = (array)apply_filters('owc/pdc_faq/config/metaboxes', $this->plugin->config->get('metaboxes'));
+		$configMetaboxes = $this->plugin->config->get('metaboxes');
 
 		return array_merge($pdcBaseMetaboxes, $configMetaboxes);
 	}
