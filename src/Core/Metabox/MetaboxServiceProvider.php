@@ -10,7 +10,7 @@ class MetaboxServiceProvider extends ServiceProvider
 	public function register()
 	{
 
-		$this->plugin->loader->addFilter('owc/pdc_base/config/metaboxes', $this, 'registerMetaboxes', 10, 1);
+		$this->plugin->loader->addFilter('owc/pdc-base/config/metaboxes', $this, 'registerMetaboxes', 10, 1);
 	}
 
 	/**
