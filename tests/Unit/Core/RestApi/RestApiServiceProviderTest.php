@@ -34,7 +34,7 @@ class RestApiServiceProviderTest extends TestCase
 		$service = new RestApiServiceProvider($plugin);
 
 		$plugin->loader->shouldReceive('addFilter')->withArgs([
-			'owc/pdc_base/config/rest_api_fields_per_posttype',
+			'owc/pdc-base/config/rest_api_fields',
 			$service,
 			'registerRestApiFields',
 			10,

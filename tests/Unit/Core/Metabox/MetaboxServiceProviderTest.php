@@ -32,8 +32,9 @@ class MetaboxServiceProviderTest extends TestCase
 
 		$service = new MetaboxServiceProvider($plugin);
 
+
 		$plugin->loader->shouldReceive('addFilter')->withArgs([
-			'owc/pdc_base/config/metaboxes',
+			'owc/pdc-base/config/metaboxes',
 			$service,
 			'registerMetaboxes',
 			10,
