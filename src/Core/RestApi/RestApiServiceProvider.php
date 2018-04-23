@@ -17,10 +17,13 @@ class RestApiServiceProvider extends ServiceProvider
 	 */
 	public function registerRestApiFields($pdcBaseRestApiFields)
 	{
-		$configRestApiFields = (array)apply_filters('owc/pdc_faq/config/rest_api_fields', $this->plugin->config->get('rest_api_fields'));
+		$configRestApiFields = $this->plugin->config->get('rest_api_fields');
 
-		foreach ( $configRestApiFields['pdc-item'] as $restApiFieldName => $configRestApiField ) {
-			$pdcBaseRestApiFields['pdc-item'][ $restApiFieldName ] = $configRestApiField;
+		foreach ( $configRestApiFields as $postType => $configRestApiFieldGroup ) {
+
+			foreach ( $configRestApiFieldGroup as $restApiFieldName => $configRestApiField ) {
+				$pdcBaseRestApiFields[ $postType ][ $restApiFieldName ] = $configRestApiField;
+			}
 		}
 
 		return $pdcBaseRestApiFields;
