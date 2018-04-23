@@ -9,7 +9,7 @@ class RestApiServiceProvider extends ServiceProvider
 
 	public function register()
 	{
-		$this->plugin->loader->addFilter('owc/pdc_base/config/rest_api_fields_per_posttype', $this, 'registerRestApiFields', 10, 1);
+		$this->plugin->loader->addFilter('owc/pdc-base/config/rest_api_fields', $this, 'registerRestApiFields', 10, 1);
 	}
 
 	/**
