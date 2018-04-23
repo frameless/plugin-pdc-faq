@@ -3,7 +3,6 @@
 namespace OWC_PDC_FAQ\Core\Plugin;
 
 use OWC_PDC_FAQ\Core\Config;
-use OWC_PDC_FAQ\Core\Admin\Admin;
 
 abstract class BasePlugin
 {
@@ -49,25 +48,15 @@ abstract class BasePlugin
 	    $this->loader = Loader::getInstance();
 
 	    $this->config = new Config($this->rootPath.'/config');
-        $this->config->boot();
-
-        $this->bootServiceProviders();
 
         $this->addStartUpHooks();
         $this->addTearDownHooks();
-
-        if (is_admin()) {
-            $admin = new Admin($this);
-            $admin->boot();
-        }
-
-        $this->loader->register();
     }
 
     /**
      * Boot service providers
      */
-    private function bootServiceProviders()
+    public function bootServiceProviders()
     {
         $services = $this->config->get('core.providers');
 
