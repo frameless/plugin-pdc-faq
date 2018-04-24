@@ -27,6 +27,13 @@ class Config
 	protected $filters = [];
 
 	/**
+	 * Array with names of exceptions to the build-in config filters.
+	 *
+	 * @var array
+	 */
+	protected $filterExceptions = [];
+
+	/**
      * Array with all the config values.
      *
      * @var array
@@ -63,12 +70,18 @@ class Config
 	{
 		foreach ( $this->filters as $filter ) {
 
+			$filterName = 'owc/' . $this->pluginName . '/config/' . $filter;
+			$configKey = str_replace( '/', '.', $filter );
+
 			$parts = explode('/', $filter);
 
-			foreach ( $parts as $part ) {
-				$filterName = 'owc/' . $this->pluginName . '/config/' . $filter;
-				$this->items[ $part ] = apply_filters( $filterName, $this->items[ $part ]);
+			$current = $this->items;
+
+			foreach ($parts as $part) {
+				$current = $current[$part];
 			}
+
+			$this->set($this->items, $configKey, apply_filters( $filterName, $current ));
 		}
 	}
 
@@ -95,6 +108,28 @@ class Config
 
         return $current;
     }
+
+	/**
+	 * Method to directly change/set values into the config->items array
+	 *
+	 * @param $items
+	 * @param $key
+	 * @param $value
+	 *
+	 */
+	public function set(&$items, $key, $value)
+	{
+		$parts = explode('.', $key);
+
+		while(count($parts) > 1) {
+			$key = array_shift($parts);
+
+			$items = &$items[$key];
+		}
+
+		$items[array_shift($parts)] = $value;
+	}
+
 
     /**
      * Return all config values.
@@ -134,6 +169,11 @@ class Config
 	public function setPluginName($pluginName)
 	{
 		$this->pluginName = $pluginName;
+	}
+
+	public function setFilterExceptions($exceptions = [])
+	{
+		$this->filterExceptions = $exceptions;
 	}
 
 	private function scanDirectory($path)
@@ -176,10 +216,9 @@ class Config
 
 	private function addToFilters($filter, $name)
 	{
-		//skip 'reserved' names (admin/core)
-		if ( ! in_array($name, ['admin', 'core']) ) {
+		//skip filter exceptions
+		if ( ! in_array($name, $this->filterExceptions )) {
 			$this->filters[] = $filter;
 		}
 	}
-
 }
