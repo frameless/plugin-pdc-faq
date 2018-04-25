@@ -27,11 +27,6 @@ abstract class BasePlugin
     public $loader;
 
 	/**
-	 * @var array with settings, see OWC_PDC_FAQ\Core\Settings\SettingsServiceProvider
-	 */
-    public $settings;
-
-    /**
      * Creates the base plugin functionality.
      *
      * Create startup hooks and tear down hooks.
@@ -72,9 +67,6 @@ abstract class BasePlugin
                 throw new \Exception('Provider must extend ServiceProvider.');
             }
 
-            /**
-             * @var \OWC_PDC_FAQ\Core\Plugin\ServiceProvider $service
-             */
             $service->register();
         }
     }
