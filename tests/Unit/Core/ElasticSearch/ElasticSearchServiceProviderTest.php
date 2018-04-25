@@ -33,7 +33,7 @@ class MetaboxServiceProviderTest extends TestCase
 		$service = new ElasticSearchServiceProvider($plugin);
 
 		$plugin->loader->shouldReceive('addFilter')->withArgs([
-			'owc/elasticsearch/additional_prepared_meta',
+			'owc/pdc-elasticsearch/elasticpress/postargs/meta',
 			$service,
 			'registerElasticSearchMetaData',
 			10,
