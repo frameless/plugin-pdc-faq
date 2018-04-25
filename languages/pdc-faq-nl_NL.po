@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDC FAQ\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-18 13:20+0000\n"
-"PO-Revision-Date: 2018-04-18 13:20+0000\n"
+"POT-Creation-Date: 2018-04-25 07:56+0000\n"
+"PO-Revision-Date: 2018-04-25 07:57+0000\n"
 "Last-Translator: Minda <ruud@yard.nl>\n"
-"Language-Team: \n"
+"Language-Team: Dutch\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
@@ -13,31 +13,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: config/metaboxes.php:30
-msgid "Antwoord"
-msgstr ""
+#: config/metaboxes.php:7
+msgid "Frequently asked questions"
+msgstr "Veelgestelde vragen"
+
+#: config/metaboxes.php:24
+msgid "Question"
+msgstr "Vraag"
 
 #: config/metaboxes.php:25
-msgctxt "Beschrijving bij de Vraag van de FAQ"
+msgctxt "Description for the Question of a FAQ item"
 msgid ""
 msgstr ""
 
+#: config/metaboxes.php:30
+msgid "Answer"
+msgstr "Antwoord"
+
 #: config/metaboxes.php:31
-msgctxt "Beschrijving bij het Antwoord van de FAQ"
-msgid "Gebruik van HTML is toegestaan"
-msgstr ""
-
-#. Author of the plugin
-msgid "Edwin Siebel, Ruud Laan"
-msgstr ""
-
-#. URI of the plugin
-msgid "https://www.openwebconcept.nl/"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://www.yarddigital.nl/"
-msgstr ""
+msgctxt "Description for the Answer of a FAQ item"
+msgid "Use of HTML is allowed"
+msgstr "Gebruik van HTML is toegestaan"
 
 #. Name of the plugin
 msgid "PDC FAQ"
@@ -47,10 +43,14 @@ msgstr ""
 msgid "Plugin to create the frequently asked questions section for a PDC item."
 msgstr ""
 
-#: config/metaboxes.php:7
-msgid "Veelgestelde vragen"
+#. URI of the plugin
+msgid "https://www.openwebconcept.nl/"
 msgstr ""
 
-#: config/metaboxes.php:24
-msgid "Vraag"
+#. Author of the plugin
+msgid "Edwin Siebel, Ruud Laan"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.yarddigital.nl/"
 msgstr ""

@@ -4,7 +4,7 @@ return [
 
 	'faq' => [
 		'id'         => 'pdc_faqdata',
-		'title'      => __('Veelgestelde vragen', 'pdc-faq'),
+		'title'      => __('Frequently asked questions', 'pdc-faq'),
 		'post_types' => ['pdc-item'],
 		'context'    => 'normal',
 		'priority'   => 'high',
@@ -21,14 +21,14 @@ return [
 					'fields'     => [
 						[
 							'id'   => 'pdc_faq_question',
-							'name' => __('Vraag', 'pdc-faq'),
-							'desc' => _x('', 'Beschrijving bij de Vraag van de FAQ', 'pdc-faq'),
+							'name' => __('Question', 'pdc-faq'),
+							'desc' => _x('', 'Description for the Question of a FAQ item', 'pdc-faq'),
 							'type' => 'text',
 						],
 						[
 							'id'   => 'pdc_faq_answer',
-							'name' => __('Antwoord', 'pdc-faq'),
-							'desc' => _x('Gebruik van HTML is toegestaan', 'Beschrijving bij het Antwoord van de FAQ', 'pdc-faq'),
+							'name' => __('Answer', 'pdc-faq'),
+							'desc' => _x('Use of HTML is allowed', 'Description for the Answer of a FAQ item', 'pdc-faq'),
 							'type' => 'wysiwyg',
 							// Editor settings, see https://codex.wordpress.org/Function_Reference/wp_editor
 							'options' => array(
