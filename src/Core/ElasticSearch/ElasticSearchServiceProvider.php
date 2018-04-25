@@ -11,7 +11,7 @@ class ElasticSearchServiceProvider extends ServiceProvider
 
 	public function register()
 	{
-		$this->plugin->loader->addFilter('owc/elasticsearch/additional_prepared_meta', $this, 'registerElasticSearchMetaData', 10, 2);
+		$this->plugin->loader->addFilter('owc/pdc-elasticsearch/elasticpress/postargs/meta', $this, 'registerElasticSearchMetaData', 10, 2);
 	}
 
 	/**
