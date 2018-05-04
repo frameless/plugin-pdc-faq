@@ -33,8 +33,8 @@ class RestApiServiceProviderTest extends TestCase
 
 		$service = new RestApiServiceProvider($plugin);
 
-		$plugin->loader->shouldReceive('addFilter')->withArgs([
-			'owc/pdc-base/config/rest_api_fields',
+		$plugin->loader->shouldReceive('addAction')->withArgs([
+			'owc/pdc-base/plugin',
 			$service,
 			'registerRestApiFields',
 			10,
@@ -54,77 +54,23 @@ class RestApiServiceProviderTest extends TestCase
 			]
 		];
 
-		$existingRestApiFields = [
-			'posttype1' => [
-				'endpoint_field1' =>
-					[
-						'get_callback'    => ['object', 'callback1'],
-						'update_callback' => null,
-						'schema'          => null,
-					],
-				'endpoint_field2' =>
-					[
-						'get_callback'    => ['object', 'callback2'],
-						'update_callback' => null,
-						'schema'          => null,
-					]
-			],
-			'posttype2' => [
-				'endpoint_field1' =>
-					[
-						'get_callback'    => ['object', 'callback1'],
-						'update_callback' => null,
-						'schema'          => null,
-					],
-				'endpoint_field2' =>
-					[
-						'get_callback'    => ['object', 'callback2'],
-						'update_callback' => null,
-						'schema'          => null,
-					]
-			]
-		];
-
-		$expectedRestApiFields = [
-			'posttype1' => [
-				'endpoint_field1' =>
-					[
-						'get_callback'    => ['object', 'callback1'],
-						'update_callback' => null,
-						'schema'          => null,
-					],
-				'endpoint_field2' =>
-					[
-						'get_callback'    => ['object', 'callback2'],
-						'update_callback' => null,
-						'schema'          => null,
-					],
-				'endpoint_field3' =>
-					[
-						'get_callback'    => ['object', 'callback3'],
-						'update_callback' => null,
-						'schema'          => null,
-					]
-			],
-			'posttype2' => [
-				'endpoint_field1' =>
-					[
-						'get_callback'    => ['object', 'callback1'],
-						'update_callback' => null,
-						'schema'          => null,
-					],
-				'endpoint_field2' =>
-					[
-						'get_callback'    => ['object', 'callback2'],
-						'update_callback' => null,
-						'schema'          => null,
-					]
-			]
-		];
-
 		$config->shouldReceive('get')->with('rest_api_fields')->once()->andReturn($configRestApiFields);
 
-		$this->assertEquals( $expectedRestApiFields, $service->registerRestApiFields( $existingRestApiFields ) );
+		$basePlugin         = new \StdClass();
+		$basePlugin->config = m::mock(Config::class);
+
+		foreach ( $configRestApiFields as $postType => $configRestApiFieldGroup ) {
+
+			foreach ( $configRestApiFieldGroup as $restApiFieldName => $configRestApiField ) {
+
+				//$basePlugin->config->set( "rest_api_fields.{$postType}.{$restApiFieldName}", $configRestApiField);
+				$basePlugin->config->shouldReceive('set')->withArgs( ["rest_api_fields.{$postType}.{$restApiFieldName}", $configRestApiField])->once();
+			}
+		}
+
+		$service->registerRestApiFields($basePlugin);
+
+		$this->assertTrue( true );
 	}
 
 	/** @test */

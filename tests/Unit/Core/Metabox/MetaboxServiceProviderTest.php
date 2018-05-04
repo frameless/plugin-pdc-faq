@@ -32,9 +32,8 @@ class MetaboxServiceProviderTest extends TestCase
 
 		$service = new MetaboxServiceProvider($plugin);
 
-
-		$plugin->loader->shouldReceive('addFilter')->withArgs([
-			'owc/pdc-base/config/metaboxes',
+		$plugin->loader->shouldReceive('addAction')->withArgs([
+			'owc/pdc-base/plugin',
 			$service,
 			'registerMetaboxes',
 			10,
@@ -62,63 +61,15 @@ class MetaboxServiceProviderTest extends TestCase
 			]
 		];
 
-		$existingMetaboxes = [
-			'base' => [
-				'id'     => 'metadata',
-				'fields' => [
-					'general' => [
-						'testfield_noid' => [
-							'type' => 'heading'
-						],
-						'testfield1'     => [
-							'id' => 'metabox_id1'
-						],
-						'testfield2'     => [
-							'id' => 'metabox_id2'
-						]
-					]
-				]
-			]
-		];
-
-		$expectedMetaboxesAfterMerge = [
-
-			'base'                   => [
-				'id'             => 'metadata',
-				'fields'         => [
-					'general' => [
-						'testfield_noid' => [
-							'type' => 'heading'
-						],
-						'testfield1'     => [
-							'id' => 'metabox_id1'
-						],
-						'testfield2'     => [
-							'id' => 'metabox_id2'
-						]
-					]
-				]
-			],
-			'faq' => [
-				'id'             => 'metadata',
-				'fields'         => [
-					'general' => [
-						'testfield_noid' => [
-							'type' => 'heading'
-						],
-						'testfield1'     => [
-							'id' => 'metabox_id1'
-						],
-						'testfield2'     => [
-							'id' => 'metabox_id2'
-						]
-					]
-				]
-			]
-		];
-
 		$config->shouldReceive('get')->with('metaboxes')->once()->andReturn($configMetaboxes);
 
-		$this->assertEquals($expectedMetaboxesAfterMerge, $service->registerMetaboxes($existingMetaboxes));
+		$basePlugin         = new \StdClass();
+		$basePlugin->config = m::mock(Config::class);
+
+		$basePlugin->config->shouldReceive('set')->withArgs( ['metaboxes.faq', $configMetaboxes['faq']])->once();
+
+		$service->registerMetaboxes($basePlugin);
+
+		$this->assertTrue( true );
 	}
 }
