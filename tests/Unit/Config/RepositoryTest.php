@@ -40,7 +40,7 @@ class RepositoryTest extends TestCase
 			    'single_file' => true
 		    ],
 		    'directory' => [
-			    'testfile' => [
+			    'testfile2' => [
 				    'in_directory' => 'directory',
 			    ],
 			    'multi'    => [
@@ -54,7 +54,7 @@ class RepositoryTest extends TestCase
 	    $this->assertEquals($config, $this->repository->all());
 	    $this->assertEquals($config, $this->repository->get(false));
         $this->assertEquals(true, $this->repository->get('test.single_file'));
-        $this->assertEquals('directory', $this->repository->get('directory.testfile.in_directory'));
+        $this->assertEquals('directory', $this->repository->get('directory.testfile2.in_directory'));
         $this->assertEquals('works', $this->repository->get('directory.multi.deep.multi_level'));
     }
 
@@ -97,7 +97,7 @@ class RepositoryTest extends TestCase
 //				'single_file' => true
 //			],
 //			'directory' => [
-//				'testfile' => [
+//				'testfile2' => [
 //					'in_directory' => 'directory',
 //				],
 //				'multi'    => [
@@ -156,7 +156,7 @@ class RepositoryTest extends TestCase
 				'test'
 			],
 			'directory' => [
-				'testfile' => [
+				'testfile2' => [
 					'in_directory' => 'directory',
 				],
 				'multi'    => [
@@ -212,7 +212,7 @@ class RepositoryTest extends TestCase
 				'single_file' => true
 			],
 			'directory' => [
-				'testfile' => 'test',
+				'testfile2' => 'test',
 				'multi'    => [
 					'deep' => [
 						'multi_level' => 'works'
@@ -221,7 +221,7 @@ class RepositoryTest extends TestCase
 			]
 		];
 		$this->repository->boot();
-		$this->repository->set('directory.testfile', 'test');
+		$this->repository->set('directory.testfile2', 'test');
 		$this->assertEquals($expectedConfig, $this->repository->all());
 
 		$expectedConfig = [
@@ -229,7 +229,7 @@ class RepositoryTest extends TestCase
 				'single_file' => true
 			],
 			'directory' => [
-				'testfile' => [
+				'testfile2' => [
 					'test' => 'node'
 				],
 				'multi'    => [
@@ -239,7 +239,7 @@ class RepositoryTest extends TestCase
 				]
 			]
 		];
-		$this->repository->set('directory.testfile', ['test' => 'node']);
+		$this->repository->set('directory.testfile2', ['test' => 'node']);
 		$this->assertEquals($expectedConfig, $this->repository->all());
 
 		$expectedConfig = [
@@ -247,7 +247,7 @@ class RepositoryTest extends TestCase
 				'single_file' => true
 			],
 			'directory' => [
-				'testfile' => [
+				'testfile2' => [
 					'test' => [
 						'node' => 'nog deeper'
 					]
@@ -259,7 +259,7 @@ class RepositoryTest extends TestCase
 				]
 			]
 		];
-		$this->repository->set('directory.testfile', ['test' => ['node' => 'nog deeper']]);
+		$this->repository->set('directory.testfile2', ['test' => ['node' => 'nog deeper']]);
 		$this->assertEquals($expectedConfig, $this->repository->all());
 
 		$expectedConfig = [
@@ -267,7 +267,7 @@ class RepositoryTest extends TestCase
 				'single_file' => true
 			],
 			'directory' => [
-				'testfile' => [
+				'testfile2' => [
 					'in_directory' => 'directory',
 				],
 				'multi'    => 'test'
@@ -282,7 +282,7 @@ class RepositoryTest extends TestCase
 				'single_file' => true
 			],
 			'directory' => [
-				'testfile' => [
+				'testfile2' => [
 					'in_directory' => 'directory',
 				],
 				'multi'    => [
@@ -299,7 +299,7 @@ class RepositoryTest extends TestCase
 				'single_file' => true
 			],
 			'directory' => [
-				'testfile' => [
+				'testfile2' => [
 					'in_directory' => 'directory',
 				],
 				'multi'    => [
@@ -317,7 +317,7 @@ class RepositoryTest extends TestCase
 				'single_file' => true
 			],
 			'directory' => [
-				'testfile' => [
+				'testfile2' => [
 					'in_directory' => 'directory',
 				],
 				'multi'    => [
@@ -343,7 +343,7 @@ class RepositoryTest extends TestCase
 				'single_file' => true
 			],
 			'directory' => [
-				'testfile' => [
+				'testfile2' => [
 					'in_directory' => 'directory',
 				],
 				'multi'    => [
