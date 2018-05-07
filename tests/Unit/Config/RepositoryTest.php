@@ -22,6 +22,7 @@ class RepositoryTest extends TestCase
     {
 	    \WP_Mock::setUp();
 
+	    var_dump(__DIR__ . '/config');
 	    $this->repository = new Config(__DIR__ . '/config');
     }
 
