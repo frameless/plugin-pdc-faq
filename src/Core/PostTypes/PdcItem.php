@@ -27,8 +27,10 @@ class PdcItem
 
 		$faqs = get_post_meta($postId, self::faq_group_meta_key, true);
 
-		foreach ( $faqs as $faq ) {
-			$metadata .= $faq[ self::faq_answer_meta_key ];
+		if ( ! empty($faqs) ) {
+			foreach ( $faqs as $faq ) {
+				$metadata .= $faq[ self::faq_answer_meta_key ];
+			}
 		}
 
 		return $metadata;
