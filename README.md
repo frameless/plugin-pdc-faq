@@ -7,19 +7,20 @@ This README documents whatever steps are necessary to get this plugin up and run
 * Unzip and/or move all files to the /wp-content/plugins/pdc-faq directory
 * Log into WordPress admin and activate the ‘PDC FAQ’ plugin through the ‘Plugins’ menu
 
-### Filters
+### Filters & Actions
 
 There are various [hooks](https://codex.wordpress.org/Plugin_API/Hooks), which allows for changing the output.
 
-##### Filters the Metaboxes config array.
+##### Action for changing main Plugin object.
 ```php
-'owc/pdc-faq/config/metaboxes'
+'owc/pdc-faq/plugin'
 ```
 
-##### Filters the Rest API fields config array.
-```php
-'owc/pdc-faq/config/rest_api_fields'
-```
+See OWC_PDC_FAQ\Core\Config->set method for a way to change this plugins config.
+
+Via the plugin object the following config settings can be adjusted
+- metaboxes
+- rest_api_fields
 
 
 ### Translations ###
@@ -61,4 +62,4 @@ Create a Pull request to the OWC repository
 
 ### Who do I talk to? ###
 
-IF you have questions about or suggestions for this plugin, please contact <a src="mailto:hpeters@Buren.nl">Holger Peters</a> from Gemeente Buren.
+IF you have questions about or suggestions for this plugin, please contact <a href="mailto:hpeters@Buren.nl">Holger Peters</a> from Gemeente Buren.
