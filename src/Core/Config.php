@@ -12,14 +12,14 @@ class Config
      */
     protected $path;
 
-	/**
-	 * Array with names of protected nodes in the config-items.
-	 *
-	 * @var array
-	 */
-	protected $protectedNodes = [];
+    /**
+     * Array with names of protected nodes in the config-items.
+     *
+     * @var array
+     */
+    protected $protectedNodes = [];
 
-	/**
+    /**
      * Array with all the config values.
      *
      * @var array
@@ -38,7 +38,7 @@ class Config
     public function __construct($path, array $items = [])
     {
         $this->items = $items;
-        $this->path = $path;
+        $this->path  = $path;
     }
 
     /**
@@ -49,7 +49,7 @@ class Config
         $this->scanDirectory($this->getPath());
     }
 
-	/**
+    /**
      * Retrieve a specific config value from the configuration repository.
      *
      * @param $setting
@@ -58,7 +58,7 @@ class Config
      */
     public function get($setting)
     {
-        if ( ! $setting) {
+        if ( ! $setting ) {
             return $this->all();
         }
 
@@ -66,50 +66,49 @@ class Config
 
         $current = $this->items;
 
-        foreach ($parts as $part) {
-            $current = $current[$part];
+        foreach ( $parts as $part ) {
+            $current = $current[ $part ];
         }
 
         return $current;
     }
 
-	/**
-	 * Set a given configuration value.
-	 *
-	 * @param  array|string $key
-	 * @param  mixed        $value
-	 *
-	 * @return void
-	 */
-	public function set($key, $value = null)
-	{
-		$keys = is_array($key) ? $key : [$key => $value];
+    /**
+     * Set a given configuration value.
+     *
+     * @param  array|string $key
+     * @param  mixed        $value
+     *
+     * @return void
+     */
+    public function set($key, $value = null)
+    {
+        $keys = is_array($key) ? $key : [$key => $value];
 
-		$tempItems = &$this->items;
+        $tempItems = &$this->items;
 
-		foreach ( $keys as $key => $value ) {
+        foreach ( $keys as $key => $value ) {
 
-			if ( in_array($key, $this->protectedNodes) ) {
-				continue;
-			}
+            if ( in_array($key, $this->protectedNodes) ) {
+                continue;
+            }
 
-			$parts = explode('.', $key);
-			while ( count($parts) > 1 ) {
+            $parts = explode('.', $key);
+            while ( count($parts) > 1 ) {
 
-				$part = array_shift($parts);
-				// If the key doesn't exist at this depth, we will just create an empty array
-				// to hold the next value, allowing us to create the arrays to hold final
-				// values at the correct depth. Then we'll keep digging into the array.
-				if ( ! isset($tempItems[ $part ]) || ! is_array($tempItems[ $part ]) ) {
-					$tempItems[ $part ] = [];
-				}
-				$tempItems = &$tempItems[ $part ];
-			}
+                $part = array_shift($parts);
+                // If the key doesn't exist at this depth, we will just create an empty array
+                // to hold the next value, allowing us to create the arrays to hold final
+                // values at the correct depth. Then we'll keep digging into the array.
+                if ( ! isset($tempItems[ $part ]) || ! is_array($tempItems[ $part ]) ) {
+                    $tempItems[ $part ] = [];
+                }
+                $tempItems = &$tempItems[ $part ];
+            }
 
-			$tempItems[ array_shift($parts) ] = $value;
-		}
-	}
-
+            $tempItems[ array_shift($parts) ] = $value;
+        }
+    }
 
     /**
      * Return all config values.
@@ -141,45 +140,49 @@ class Config
         $this->path = $path;
     }
 
-	public function setProtectedNodes($nodes = [])
-	{
-		$this->protectedNodes = $nodes;
-	}
+    /**
+     * @param array $nodes
+     */
+    public function setProtectedNodes($nodes = [])
+    {
+        $this->protectedNodes = $nodes;
+    }
 
-	private function scanDirectory($path)
-	{
-		$this->items = [];
+    /**
+     * @param $path
+     */
+    private function scanDirectory($path)
+    {
+        $files = glob($path . '/*', GLOB_NOSORT);
 
-		$files = glob($path . '/*', GLOB_NOSORT);
-
-        foreach ($files as $file) {
+        foreach ( $files as $file ) {
 
             $fileType = filetype($file);
 
-            if ($fileType == "dir") {
-	            $this->scanDirectory($file);
+            if ( $fileType == "dir" ) {
+                $this->scanDirectory($file);
             } else {
-                $name = str_replace('.php', '', basename($file));
+                $name  = str_replace('.php', '', basename($file));
                 $value = include $file;
 
                 // If its in the first directory just add the file.
-                if ($path == $this->path) {
-                    $this->items[$name] = $value;
-	                continue;
+                if ( $path == $this->path ) {
+                    $this->items[ $name ] = $value;
+                    continue;
                 }
 
                 // Get the path from the starting path.
-                $path = str_replace($this->path.'/', '', $path);
+                $path = str_replace($this->path . '/', '', $path);
 
                 // Build an array from the path.
-                $items = [];
-                $items[$name] = $value;
-	            foreach ( array_reverse(explode('/', $path)) as $key ) {
-		            $items = [$key => $items];
-	            }
+                $items          = [];
+                $items[ $name ] = $value;
+                foreach ( array_reverse(explode('/', $path)) as $key ) {
+                    $items = [$key => $items];
+                }
 
                 // Merge it recursively into items
-                $this->items = array_merge_recursive($this->items, $items);
+                $this->items = array_merge_recursive($items, $this->items);
             }
         }
     }
