@@ -182,7 +182,7 @@ class Config
                 }
 
                 // Merge it recursively into items
-                $this->items = array_merge_recursive($items, $this->items);
+	            $this->items = array_merge_recursive($this->items, $items);
             }
         }
     }
