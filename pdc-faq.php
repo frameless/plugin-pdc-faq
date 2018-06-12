@@ -12,8 +12,8 @@
  * Domain Path:       /languages
  */
 
-use OWC_PDC_FAQ\Core\Autoloader;
-use OWC_PDC_FAQ\Core\Plugin;
+use OWC\PDC\FAQ\Autoloader;
+use OWC\PDC\FAQ\Foundation\Plugin;
 
 /**
  * If this file is called directly, abort.

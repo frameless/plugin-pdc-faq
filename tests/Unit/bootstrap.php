@@ -3,7 +3,7 @@
 /**
  * PHPUnit bootstrap file
  *
- * @package OWC_PDC_FAQ
+ * @package OWC\PDC\FAQ
  */
 
 //$_tests_dir = getenv( 'WP_TESTS_DIR' );

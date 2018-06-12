@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core;
+namespace OWC\PDC\FAQ;
 
 class Autoloader
 {
@@ -16,7 +16,7 @@ class Autoloader
             $namespace = str_replace("\\", "/", __NAMESPACE__);
             $className = str_replace("\\", "/", $className);
             $class = $baseDir.(empty($namespace) ? "" : $namespace."/").$className.'.php';
-            $class = str_replace('/OWC_PDC_FAQ/Core/OWC_PDC_FAQ/Core/', '/Core/', $class);
+            $class = str_replace('/OWC/PDC/FAQ/OWC/PDC/FAQ/', '/FAQ/', $class);
             if (file_exists($class)) {
                 require_once($class);
             }

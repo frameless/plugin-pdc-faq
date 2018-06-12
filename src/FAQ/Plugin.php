@@ -1,9 +1,9 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core;
+namespace OWC\PDC\FAQ;
 
-use OWC_PDC_FAQ\Core\Plugin\BasePlugin;
-use OWC_PDC_FAQ\Core\Admin\Admin;
+use OWC\PDC\FAQ\Plugin\BasePlugin;
+use OWC\PDC\FAQ\Admin\Admin;
 
 class Plugin extends BasePlugin
 {

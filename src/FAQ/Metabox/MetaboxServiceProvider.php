@@ -1,8 +1,8 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core\Metabox;
+namespace OWC\PDC\FAQ\Metabox;
 
-use OWC_PDC_FAQ\Core\Plugin\ServiceProvider;
+use OWC\PDC\Base\Foundation\ServiceProvider;
 
 class MetaboxServiceProvider extends ServiceProvider
 {

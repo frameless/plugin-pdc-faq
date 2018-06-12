@@ -1,12 +1,12 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core\Metabox;
+namespace OWC\PDC\FAQ\Metabox;
 
 use Mockery as m;
-use OWC_PDC_FAQ\Core\Config;
-use OWC_PDC_FAQ\Core\Plugin\BasePlugin;
-use OWC_PDC_FAQ\Core\Plugin\Loader;
-use OWC_PDC_FAQ\Core\Tests\Unit\TestCase;
+use OWC\PDC\FAQ\Config;
+use OWC\PDC\FAQ\Foundation\Plugin;
+use OWC\PDC\Base\Foundation\Loader;
+use OWC\PDC\FAQ\Tests\Unit\TestCase;
 
 class MetaboxServiceProviderTest extends TestCase
 {
@@ -25,7 +25,7 @@ class MetaboxServiceProviderTest extends TestCase
 	public function check_registration_of_metaboxes()
 	{
 		$config = m::mock(Config::class);
-		$plugin = m::mock(BasePlugin::class);
+		$plugin = m::mock(Plugin::class);
 
 		$plugin->config = $config;
 		$plugin->loader = m::mock(Loader::class);
