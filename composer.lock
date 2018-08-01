@@ -12,7 +12,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:openwebconcept/plugin-pdc-base.git",
-                "reference": "60639c884c76f8ba39fbace335617828070c0544"
+                "reference": "512469006e03cc4fa623d4b1815f83cc412d3dbb"
             },
             "require": {
                 "php": ">=7.0"
@@ -30,20 +30,30 @@
                     "OWC\\PDC\\Base\\Tests\\": "./tests"
                 }
             },
+            "scripts": {
+                "unit": [
+                    "clear && ./vendor/bin/phpunit  --testsuite 'OWC PDC FAQ Plugin Unit Test Suite' --colors=always"
+                ],
+                "unit-coverage": [
+                    "clear && ./vendor/bin/phpunit  --testsuite 'OWC PDC FAQ Plugin Unit Test Suite' --colors=always --coverage-html ./tests/coverage"
+                ],
+                "integration": [
+                    "clear && ./vendor/bin/phpunit  --testsuite 'Integration Test' --colors=always"
+                ],
+                "test": [
+                    "@unit",
+                    "@integration"
+                ]
+            },
             "authors": [
                 {
-                    "name": "Ruud Laan",
-                    "email": "ruud@yard.nl",
-                    "homepage": "https://www.yarddigital.nl"
-                },
-                {
-                    "name": "Edwin Siebel",
-                    "email": "edwin@yard.nl",
-                    "homepage": "https://www.yarddigital.nl"
+                    "name": "Yard Internet",
+                    "email": "info@yard.nl",
+                    "homepage": "https://www.yardinternet.nl"
                 }
             ],
             "description": "PDC base plugin",
-            "time": "2018-08-01T08:06:02+00:00"
+            "time": "2018-08-01T12:29:42+00:00"
         }
     ],
     "packages-dev": [
