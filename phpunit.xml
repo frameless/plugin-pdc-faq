@@ -12,7 +12,7 @@
 	verbose="true"
 >
 	<testsuites>
-		<testsuite name="OWC PDC FAQ Plugin Unit Test Suite">
+		<testsuite name="Unit Test Suite">
 			<directory suffix="Test.php">./tests/Unit</directory>
 		</testsuite>
 	</testsuites>

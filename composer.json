@@ -32,8 +32,8 @@
     }
   },
   "scripts": {
-    "unit": "clear && ./vendor/bin/phpunit  --testsuite 'OWC PDC FAQ Plugin Unit Test Suite' --colors=always",
-    "unit-coverage": "clear && ./vendor/bin/phpunit  --testsuite 'OWC PDC FAQ Plugin Unit Test Suite' --colors=always --coverage-html ./tests/coverage",
+    "unit": "clear && ./vendor/bin/phpunit  --testsuite 'Unit Test Suite' --colors=always",
+    "unit-coverage": "clear && ./vendor/bin/phpunit  --testsuite 'Unit Test Suite' --colors=always --coverage-html ./tests/coverage",
     "integration": "clear && ./vendor/bin/phpunit  --testsuite 'Integration Test' --colors=always",
     "test": [
       "@unit",
