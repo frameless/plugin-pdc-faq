@@ -18,4 +18,9 @@ return [
 	        OWC\PDC\FAQ\Metabox\MetaboxServiceProvider::class,
         ]
     ],
+
+    'dependencies' => [
+
+    ]
+
 ];

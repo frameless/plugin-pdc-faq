@@ -13,7 +13,7 @@
  */
 
 use OWC\PDC\FAQ\Autoloader;
-use OWC\PDC\FAQ\Plugin;
+use OWC\PDC\FAQ\Foundation\Plugin;
 
 /**
  * If this file is called directly, abort.

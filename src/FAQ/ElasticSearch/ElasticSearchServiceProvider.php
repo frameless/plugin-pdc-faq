@@ -2,38 +2,62 @@
 
 namespace OWC\PDC\FAQ\ElasticSearch;
 
-use OWC\PDC\FAQ\Plugin\ServiceProvider;
-use OWC\PDC\FAQ\PostTypes\PdcItem;
+use OWC\PDC\Base\Foundation\ServiceProvider;
 
 class ElasticSearchServiceProvider extends ServiceProvider
 {
-	const faq_elasticsearch_id = 'faq_group';
 
-	public function register()
-	{
-		$this->plugin->loader->addFilter('owc/pdc-elasticsearch/elasticpress/postargs/meta', $this, 'registerElasticSearchMetaData', 10, 2);
-	}
+    public function register()
+    {
+        $this->plugin->loader->addFilter('owc/pdc-elasticsearch/elasticpress/postargs/meta', $this,
+            'registerElasticSearchMetaData', 10, 2);
+    }
 
-	/**
-	 * register metaboxes for settings page
-	 *
-	 * @param $rwmbMetaboxes
-	 *
-	 * @return array
-	 */
-	public function registerElasticSearchMetaData($additionalPreparedMeta, $postId)
-	{
-		if ( 'pdc-item' == get_post_type($postId) ) {
+    /**
+     * Register metaboxes for settings page.
+     *
+     * @param $additionalPreparedMeta
+     * @param $postId
+     *
+     * @return array
+     */
+    public function registerElasticSearchMetaData($additionalPreparedMeta, $postId)
+    {
+        if ('pdc-item' != get_post_type($postId)) {
+            return $additionalPreparedMeta;
+        }
 
-			$pdcItem = new PdcItem();
+        $metadata = $this->getFaqsForElasticSearch($postId);
 
-			$metadata = $pdcItem->getFaqsForElasticSearch($postId);
+        if ( ! empty($metadata)) {
+            $additionalPreparedMeta['faq_group'] = $metadata;
+        }
 
-			if ( ! empty($metadata) ) {
-				$additionalPreparedMeta[ self::faq_elasticsearch_id ] = $metadata;
-			}
-		}
+        return $additionalPreparedMeta;
+    }
 
-		return $additionalPreparedMeta;
-	}
+    /**
+     * Get configured FAQs for a given post.
+     *
+     * @param $postId
+     *
+     * @return string
+     */
+    public function getFaqsForElasticSearch($postId)
+    {
+        $metadata = '';
+
+        $faqs = get_post_meta($postId, '_owc_pdc_faq_group', true);
+
+        if (empty($faqs)) {
+            return '';
+        }
+
+        foreach ($faqs as $faq) {
+            $metadata .= $faq['pdc_faq_answer'];
+        }
+
+        return $metadata;
+    }
+
 }

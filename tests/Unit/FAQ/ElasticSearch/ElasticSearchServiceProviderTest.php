@@ -4,8 +4,8 @@ namespace OWC\PDC\FAQ\ElasticSearch;
 
 use Mockery as m;
 use OWC\PDC\FAQ\Config;
-use OWC\PDC\FAQ\Plugin\BasePlugin;
-use OWC\PDC\FAQ\Plugin\Loader;
+use OWC\PDC\FAQ\Foundation\Plugin;
+use OWC\PDC\Base\Foundation\Loader;
 use OWC\PDC\FAQ\Tests\Unit\TestCase;
 
 class MetaboxServiceProviderTest extends TestCase
@@ -25,7 +25,7 @@ class MetaboxServiceProviderTest extends TestCase
 	public function check_registration_of_elasticsearch_metadata()
 	{
 		$config = m::mock(Config::class);
-		$plugin = m::mock(BasePlugin::class);
+		$plugin = m::mock(Plugin::class);
 
 		$plugin->config = $config;
 		$plugin->loader = m::mock(Loader::class);
