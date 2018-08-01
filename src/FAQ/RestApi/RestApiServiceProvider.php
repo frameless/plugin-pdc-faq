@@ -1,8 +1,8 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core\RestApi;
+namespace OWC\PDC\FAQ\RestApi;
 
-use OWC_PDC_FAQ\Core\Plugin\ServiceProvider;
+use OWC\PDC\FAQ\Plugin\ServiceProvider;
 
 class RestApiServiceProvider extends ServiceProvider
 {
@@ -17,7 +17,7 @@ class RestApiServiceProvider extends ServiceProvider
 	 *
 	 * @param $plugin
 	 *
-	 * @return $plugin OWC_PDC_Base\Core\Plugin
+	 * @return $plugin OWC\PDC\FAQ\Plugin
 	 */
 	public function registerRestApiFields( $basePlugin )
 	{

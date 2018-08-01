@@ -1,6 +1,6 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core\PostTypes;
+namespace OWC\PDC\FAQ\PostTypes;
 
 class PdcItem
 {

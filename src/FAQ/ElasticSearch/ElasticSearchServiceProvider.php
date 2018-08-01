@@ -1,9 +1,9 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core\ElasticSearch;
+namespace OWC\PDC\FAQ\ElasticSearch;
 
-use OWC_PDC_FAQ\Core\Plugin\ServiceProvider;
-use OWC_PDC_FAQ\Core\PostTypes\PdcItem;
+use OWC\PDC\FAQ\Plugin\ServiceProvider;
+use OWC\PDC\FAQ\PostTypes\PdcItem;
 
 class ElasticSearchServiceProvider extends ServiceProvider
 {

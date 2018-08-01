@@ -1,13 +1,13 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core\RestApi;
+namespace OWC\PDC\FAQ\RestApi;
 
 use Mockery as m;
-use OWC_PDC_FAQ\Core\Config;
-use OWC_PDC_FAQ\Core\Plugin\BasePlugin;
-use OWC_PDC_FAQ\Core\Plugin\Loader;
-use OWC_PDC_FAQ\Core\Tests\Unit\TestCase;
-use OWC_PDC_FAQ\Core\PostTypes\PdcItem;
+use OWC\PDC\FAQ\Config;
+use OWC\PDC\FAQ\Plugin\BasePlugin;
+use OWC\PDC\FAQ\Plugin\Loader;
+use OWC\PDC\FAQ\Tests\Unit\TestCase;
+use OWC\PDC\FAQ\PostTypes\PdcItem;
 
 class RestApiServiceProviderTest extends TestCase
 {

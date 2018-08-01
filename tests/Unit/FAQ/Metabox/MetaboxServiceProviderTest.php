@@ -1,12 +1,12 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core\Metabox;
+namespace OWC\PDC\FAQ\Metabox;
 
 use Mockery as m;
-use OWC_PDC_FAQ\Core\Config;
-use OWC_PDC_FAQ\Core\Plugin\BasePlugin;
-use OWC_PDC_FAQ\Core\Plugin\Loader;
-use OWC_PDC_FAQ\Core\Tests\Unit\TestCase;
+use OWC\PDC\FAQ\Config;
+use OWC\PDC\FAQ\Plugin\BasePlugin;
+use OWC\PDC\FAQ\Plugin\Loader;
+use OWC\PDC\FAQ\Tests\Unit\TestCase;
 
 class MetaboxServiceProviderTest extends TestCase
 {

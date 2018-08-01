@@ -1,9 +1,9 @@
 <?php
 
-namespace OWC_PDC_FAQ\Core\Admin;
+namespace OWC\PDC\FAQ\Admin;
 
-use OWC_PDC_FAQ\Core\Plugin\ServiceProvider;
-use OWC_PDC_FAQ\Core\Plugin;
+use OWC\PDC\FAQ\Plugin\ServiceProvider;
+use OWC\PDC\FAQ\Plugin;
 
 class Admin
 {
@@ -11,21 +11,21 @@ class Admin
     /**
      * Instance of the plugin.
      *
-     * @var $plugin \OWC_PDC_FAQ\Core\Plugin
+     * @var $plugin \OWC\PDC\FAQ\Plugin
      */
     protected $plugin;
 
     /**
      * Instance of the actions and filters loader.
      *
-     * @var $plugin \OWC_PDC_FAQ\Core\Plugin\Loader
+     * @var $plugin \OWC\PDC\FAQ\Plugin\Loader
      */
     protected $loader;
 
     /**
      * Admin constructor.
      *
-     * @param \OWC_PDC_FAQ\Core\PLugin $plugin
+     * @param \OWC\PDC\FAQ\PLugin $plugin
      */
     public function __construct(Plugin $plugin)
     {
@@ -56,7 +56,7 @@ class Admin
             }
 
             /**
-             * @var \OWC_PDC_FAQ\Core\Plugin\ServiceProvider $service
+             * @var \OWC\PDC\FAQ\Plugin\ServiceProvider $service
              */
             $service->register();
         }

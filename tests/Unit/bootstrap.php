@@ -3,7 +3,7 @@
 /**
  * PHPUnit bootstrap file
  *
- * @package OWC_PDC_FAQ
+ * @package OWC\PDC\FAQ
  */
 
 //$_tests_dir = getenv( 'WP_TESTS_DIR' );
@@ -21,6 +21,8 @@
  * Load dependencies with Composer autoloader.
  */
 require __DIR__ . '/../../vendor/autoload.php';
+
+define('WP_PLUGIN_DIR', __DIR__);
 
 /**
  * Bootstrap WordPress Mock.

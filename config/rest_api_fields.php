@@ -1,6 +1,6 @@
 <?php
 
-$pdcItem = new \OWC_PDC_FAQ\Core\PostTypes\PdcItem();
+$pdcItem = new \OWC\PDC\FAQ\PostTypes\PdcItem();
 
 return [
 
