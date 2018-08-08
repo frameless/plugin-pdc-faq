@@ -1,10 +1,15 @@
 <?php
-
+/**
+ * Ammends the FAQ field to a PDC item.
+ */
 namespace OWC\PDC\FAQ\RestApi;
 
 use OWC\PDC\Base\Support\CreatesFields;
 use WP_Post;
 
+/**
+ * Ammends the FAQ field to a PDC item.
+ */
 class FAQField extends CreatesFields
 {
 

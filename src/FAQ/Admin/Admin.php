@@ -1,10 +1,16 @@
 <?php
+/**
+ * Provider which boots the admin serviceproviders.
+ */
 
 namespace OWC\PDC\FAQ\Admin;
 
 use OWC\PDC\FAQ\Plugin\ServiceProvider;
 use OWC\PDC\FAQ\Plugin;
 
+/**
+ * Provider which boots the admin serviceproviders.
+ */
 class Admin
 {
 

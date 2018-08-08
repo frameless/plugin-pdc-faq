@@ -64,12 +64,12 @@ class MetaboxServiceProviderTest extends TestCase
 
 		$config->shouldReceive('get')->with('metaboxes')->once()->andReturn($configMetaboxes);
 
-		$basePlugin         = new \StdClass();
-		$basePlugin->config = m::mock(Config::class);
+        $plugin = m::mock(Plugin::class);
+		$plugin->config = m::mock(Config::class);
 
-		$basePlugin->config->shouldReceive('set')->withArgs( ['metaboxes.faq', $configMetaboxes['faq']])->once();
+        $plugin->config->shouldReceive('set')->withArgs( ['metaboxes.faq', $configMetaboxes['faq']])->once();
 
-		$service->registerMetaboxes($basePlugin);
+		$service->registerMetaboxes($plugin);
 
 		$this->assertTrue( true );
 	}

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name:       PDC FAQ
  * Plugin URI:        https://www.openwebconcept.nl/
@@ -14,13 +13,19 @@
  */
 
 use OWC\PDC\FAQ\Autoloader;
+use OWC\PDC\FAQ\Foundation\Hooks;
 use OWC\PDC\FAQ\Foundation\Plugin;
 
 /**
  * If this file is called directly, abort.
  */
 if ( ! defined('WPINC')) {
-	die;
+    die;
+}
+
+// Don't boot if base plugin is not active.
+if ( ! is_plugin_active('pdc-base/pdc-base.php')) {
+    return;
 }
 
 /**
@@ -36,7 +41,6 @@ $autoloader = new Autoloader();
  * plugin overrides. The plugins_loaded action hook fires early, and precedes the setup_theme, after_setup_theme, init
  * and wp_loaded action hooks.
  */
-
-add_action('plugins_loaded', function() {
-	$plugin = (new Plugin(__DIR__))->boot();
-}, 10);
+add_action('plugins_loaded', function () use ($plugin) {
+    (new Plugin(__DIR__))->boot();
+}, 11);
