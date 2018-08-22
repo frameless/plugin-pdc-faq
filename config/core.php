@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /**
      * Service Providers.
      */
@@ -18,7 +17,6 @@ return [
         'admin'    => [
 	        OWC\PDC\FAQ\Metabox\MetaboxServiceProvider::class,
         ]
-
     ],
 
     'dependencies' => [

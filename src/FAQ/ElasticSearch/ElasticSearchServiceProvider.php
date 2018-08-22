@@ -1,12 +1,21 @@
 <?php
+/**
+ * Provider which setups up the syncronasation of the FAQ items in ElasticSearch
+ */
 
 namespace OWC\PDC\FAQ\ElasticSearch;
 
 use OWC\PDC\Base\Foundation\ServiceProvider;
 
+/**
+ * Provider which setups up the syncronasation of the FAQ items in ElasticSearch
+ */
 class ElasticSearchServiceProvider extends ServiceProvider
 {
 
+    /**
+     * Registers the filters.
+     */
     public function register()
     {
         $this->plugin->loader->addFilter('owc/pdc-elasticsearch/elasticpress/postargs/meta', $this,

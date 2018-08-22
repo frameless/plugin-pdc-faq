@@ -3,22 +3,23 @@
 namespace OWC\PDC\FAQ\Metabox;
 
 use Mockery as m;
-use OWC\PDC\FAQ\Config;
-use OWC\PDC\FAQ\Foundation\Plugin;
+use OWC\PDC\Base\Foundation\Config;
 use OWC\PDC\Base\Foundation\Loader;
+use OWC\PDC\Base\Foundation\Plugin;
 use OWC\PDC\FAQ\Tests\Unit\TestCase;
+use WP_Mock;
 
 class MetaboxServiceProviderTest extends TestCase
 {
 
 	public function setUp()
 	{
-		\WP_Mock::setUp();
+		WP_Mock::setUp();
 	}
 
 	public function tearDown()
 	{
-		\WP_Mock::tearDown();
+		WP_Mock::tearDown();
 	}
 
 	/** @test */
@@ -63,12 +64,12 @@ class MetaboxServiceProviderTest extends TestCase
 
 		$config->shouldReceive('get')->with('metaboxes')->once()->andReturn($configMetaboxes);
 
-		$basePlugin         = new \StdClass();
-		$basePlugin->config = m::mock(Config::class);
+        $plugin = m::mock(Plugin::class);
+		$plugin->config = m::mock(Config::class);
 
-		$basePlugin->config->shouldReceive('set')->withArgs( ['metaboxes.faq', $configMetaboxes['faq']])->once();
+        $plugin->config->shouldReceive('set')->withArgs( ['metaboxes.faq', $configMetaboxes['faq']])->once();
 
-		$service->registerMetaboxes($basePlugin);
+		$service->registerMetaboxes($plugin);
 
 		$this->assertTrue( true );
 	}

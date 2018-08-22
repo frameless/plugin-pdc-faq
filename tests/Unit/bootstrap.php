@@ -2,25 +2,14 @@
 
 /**
  * PHPUnit bootstrap file
- *
- * @package OWC\PDC\FAQ
  */
-
-//$_tests_dir = getenv( 'WP_TESTS_DIR' );
-//if ( ! $_tests_dir ) {
-//	$_tests_dir = '/tmp/wordpress-tests-lib';
-//}
-//
-//// Give access to tests_add_filter() function.
-//require_once $_tests_dir . '/includes/functions.php';
-//
-//// Start up the WP testing environment.
-//require $_tests_dir . '/includes/bootstrap.php';
 
 /**
  * Load dependencies with Composer autoloader.
  */
 require __DIR__ . '/../../vendor/autoload.php';
+
+define('WP_PLUGIN_DIR', __DIR__);
 
 /**
  * Bootstrap WordPress Mock.
@@ -28,10 +17,32 @@ require __DIR__ . '/../../vendor/autoload.php';
 \WP_Mock::setUsePatchwork( true );
 \WP_Mock::bootstrap();
 
-$GLOBALS['pdc-faq'] = array(
-	'active_plugins' => array( 'pdc-faq/pdc-faq.php' ),
-);
+$GLOBALS['pdc-faq'] = [
+	'active_plugins' => ['pdc-faq/pdc-faq.php'],
+];
 
-class WP_CLI {
-	public static function add_command() {}
+class WP_CLI
+{
+	public static function add_command()
+	{
+	}
+}
+
+if ( ! function_exists('get_echo') ) {
+
+	/**
+	 * Capture the echo of a callable function.
+	 *
+	 * @param       $callable
+	 * @param array $args
+	 *
+	 * @return string
+	 */
+	function get_echo($callable, $args = [])
+	{
+		ob_start();
+		call_user_func_array($callable, $args);
+
+		return ob_get_clean();
+	}
 }

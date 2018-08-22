@@ -3,14 +3,9 @@
   "description": "PDC Frequently Asked Questions plugin, creates PDC item FAQ section",
   "authors": [
     {
-      "name": "Ruud Laan",
-      "email": "ruud@yard.nl",
-      "homepage": "https://www.yarddigital.nl"
-    },
-    {
-      "name": "Edwin Siebel",
-      "email": "edwin@yard.nl",
-      "homepage": "https://www.yarddigital.nl"
+      "name": "Yard Internet",
+      "email": "info@yard.nl",
+      "homepage": "https://www.yardinternet.nl"
     }
   ],
   "type": "wordpress-plugin",
@@ -22,19 +17,29 @@
   ],
   "require": {
     "php": ">=7.0",
-    "plugin/pdc-base": "dev-master"
+    "plugin/pdc-base": "^2.0.0"
   },
   "require-dev": {
     "mockery/mockery": "1.0.*",
-    "phpunit/phpunit": "~6.0",
+    "phpunit/phpunit": "~7.0",
     "10up/wp_mock": "dev-master",
-    "phpmd/phpmd": "@stable"
+    "phpdocumentor/phpdocumentor": "2.*",
+    "squizlabs/php_codesniffer": "^3.0.2"
   },
-  "autoload-dev": {
+  "autoload": {
     "psr-4": {
       "OWC\\PDC\\FAQ\\": "./src/FAQ",
       "OWC\\PDC\\FAQ\\Tests\\": "./tests"
     }
+  },
+  "scripts": {
+    "unit": "clear && ./vendor/bin/phpunit  --testsuite 'Unit Test Suite' --colors=always",
+    "unit-coverage": "clear && ./vendor/bin/phpunit  --testsuite 'Unit Test Suite' --colors=always --coverage-html ./tests/coverage",
+    "integration": "clear && ./vendor/bin/phpunit  --testsuite 'Integration Test Suite' --colors=always",
+    "test": [
+      "@unit",
+      "@integration"
+    ],
+    "docs": "./vendor/bin/phpdoc -d ./src/FAQ -t ./docs"
   }
 }
-

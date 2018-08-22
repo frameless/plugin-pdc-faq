@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-25 07:56+0000\n"
 "PO-Revision-Date: 2018-04-25 07:57+0000\n"
-"Last-Translator: Minda <ruud@yard.nl>\n"
+"Last-Translator: Yard Interetn <info@yard.nl>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -48,9 +48,9 @@ msgid "https://www.openwebconcept.nl/"
 msgstr ""
 
 #. Author of the plugin
-msgid "Edwin Siebel, Ruud Laan"
+msgid "Yard Internetn"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "https://www.yarddigital.nl/"
+msgid "https://www.yardinternet.nl/"
 msgstr ""
