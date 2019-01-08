@@ -41,10 +41,10 @@ class ElasticSearchServiceProvider extends ServiceProvider
             return $additionalPreparedMeta;
         }
 
-        $metadata = $this->getFaqsForElasticSearch($postId);
+		$metadata = $this->getFaqsForElasticSearch($postId);
 
         if (! empty($metadata)) {
-            $additionalPreparedMeta['faq_group'] = $metadata;
+            $additionalPreparedMeta['faq_group']['value'] = $metadata;
         }
 
         return $additionalPreparedMeta;
