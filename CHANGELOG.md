@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version 2.0.3
+### Fix:
+* (fix): check if required file for ```is_plugin_active``` is already loaded, otherwise load it. Props @Jasper Heidebrink
+
+### Add:
+* (Remove): docs in plugin, in favor of generating docs remote.
+
 ## Version 2.0.2
 ### Fix:
 * (Fix): meta as object

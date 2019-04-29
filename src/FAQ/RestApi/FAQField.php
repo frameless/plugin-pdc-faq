@@ -28,9 +28,9 @@ class FAQField extends CreatesFields
                 'answer'   => isset($faq['pdc_faq_answer']) ? apply_filters('the_content', $faq['pdc_faq_answer']) : ''
             ];
         }, $this->getFAQ($post));
-	}
+    }
 
-	/**
+    /**
      * Get faqs of a post.
      *
      * @param WP_Post $post
