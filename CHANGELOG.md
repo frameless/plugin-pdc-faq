@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version 3.0.1
+
+### Fix
+
+-   View content of metabox sort clone field after moving it around.
+
 ## Version 3.0.0
 
 ### Changed

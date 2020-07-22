@@ -4,7 +4,7 @@
  * Plugin Name:       PDC FAQ
  * Plugin URI:        https://www.openwebconcept.nl/
  * Description:       Plugin to create the frequently asked questions section for a PDC item.
- * Version:           3.0.0
+ * Version:           3.0.1
  * Author:            Yard Internet
  * Author URI:        https://www.yardinternet.nl/
  * License:           GPL-3.0
@@ -47,3 +47,12 @@ $autoloader = new Autoloader();
 add_action('plugins_loaded', function () {
     $plugin = (new Plugin(__DIR__))->boot();
 }, 10);
+
+
+/**
+ * Partial fix for metabox group plugin.
+ * Issue: using sort clone, the wysiwyg field content does not display after moving.
+ */
+add_action('admin_enqueue_scripts', function () {
+    wp_enqueue_style('metabox-fix', plugins_url() . '/pdc-faq/metabox-fix.css');
+});
