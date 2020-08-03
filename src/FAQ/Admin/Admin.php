@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Provider which boots the admin serviceproviders.
  */
@@ -6,7 +7,7 @@
 namespace OWC\PDC\FAQ\Admin;
 
 use OWC\PDC\FAQ\Plugin\ServiceProvider;
-use OWC\PDC\FAQ\Plugin;
+use OWC\PDC\FAQ\Foundation\Plugin;
 
 /**
  * Provider which boots the admin serviceproviders.
@@ -57,7 +58,7 @@ class Admin
         foreach ($services as $service) {
             $service = new $service($this->plugin);
 
-            if (! $service instanceof ServiceProvider) {
+            if (!$service instanceof ServiceProvider) {
                 throw new \Exception('Provider must extend ServiceProvider.');
             }
 
