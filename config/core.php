@@ -8,7 +8,7 @@ return [
         /**
          * Global providers.
          */
-        OWC\PDC\FAQ\RestApi\RestApiServiceProvider::class,
+        OWC\PDC\FAQ\RestApi\RestAPIServiceProvider::class,
         OWC\PDC\FAQ\ElasticSearch\ElasticSearchServiceProvider::class,
 
         /**
@@ -23,7 +23,7 @@ return [
         [
             'type'    => 'plugin',
             'label'   => 'OpenPDC Base',
-            'version' => '2.2.13',
+            'version' => '3.0.0',
             'file'    => 'pdc-base/pdc-base.php',
         ],
     ]

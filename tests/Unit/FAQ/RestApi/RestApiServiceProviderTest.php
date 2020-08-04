@@ -6,12 +6,12 @@ use Mockery as m;
 use OWC\PDC\Base\Foundation\Config;
 use OWC\PDC\Base\Foundation\Loader;
 use OWC\PDC\Base\Foundation\Plugin;
-use OWC\PDC\FAQ\RestApi\RestApiServiceProvider;
+use OWC\PDC\FAQ\RestApi\RestAPIServiceProvider;
 use OWC\PDC\FAQ\Tests\Unit\TestCase;
 use OWC\PDC\FAQ\PostTypes\PdcItem;
 use WP_Mock;
 
-class RestApiServiceProviderTest extends TestCase
+class RestAPIServiceProviderTest extends TestCase
 {
 
 	public function setUp()
@@ -33,11 +33,11 @@ class RestApiServiceProviderTest extends TestCase
 		$plugin->config = $config;
 		$plugin->loader = m::mock(Loader::class);
 
-		$service = new RestApiServiceProvider($plugin);
+		$service = new RestAPIServiceProvider($plugin);
 
 		$service->register();
 
-		$this->assertTrue( true );
+		$this->assertTrue(true);
 	}
 
 	/** @test */
@@ -52,15 +52,14 @@ class RestApiServiceProviderTest extends TestCase
 		];
 
 		WP_Mock::userFunction('get_post_meta', [
-				'args'   => [
-					$postID,
-					\WP_Mock\Functions::type('string'),
-					true
-				],
-				'times'  => '1',
-				'return' => $faq_group_meta
-			]
-		);
+			'args'   => [
+				$postID,
+				\WP_Mock\Functions::type('string'),
+				true
+			],
+			'times'  => '1',
+			'return' => $faq_group_meta
+		]);
 
 		$pdcItem = new PdcItem();
 
@@ -68,5 +67,4 @@ class RestApiServiceProviderTest extends TestCase
 
 		$this->assertEquals($faq_group_meta, $pdcItem->getFaqsForRestApi($object, $field_name = '', $request = ''));
 	}
-
 }

@@ -12,7 +12,7 @@ use OWC\PDC\Base\Foundation\ServiceProvider;
 /**
  * Provider which registers the FAQ section to the API.
  */
-class RestApiServiceProvider extends ServiceProvider
+class RestAPIServiceProvider extends ServiceProvider
 {
 
     /**
