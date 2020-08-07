@@ -4,9 +4,9 @@
  * Plugin Name:       PDC FAQ
  * Plugin URI:        https://www.openwebconcept.nl/
  * Description:       Plugin to create the frequently asked questions section for a PDC item.
- * Version:           3.0.1
- * Author:            Yard Internet
- * Author URI:        https://www.yardinternet.nl/
+ * Version:           3.0.2
+ * Author:            Yard Digital Agency
+ * Author URI:        https://www.yard.nl/
  * License:           GPL-3.0
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       pdc-faq

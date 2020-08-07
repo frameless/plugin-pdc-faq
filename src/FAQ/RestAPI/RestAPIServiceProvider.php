@@ -4,10 +4,10 @@
  * Provider which registers the FAQ section to the API.
  */
 
-namespace OWC\PDC\FAQ\RestApi;
+namespace OWC\PDC\FAQ\RestAPI;
 
-use OWC\PDC\Base\Repositories\Item;
 use OWC\PDC\Base\Foundation\ServiceProvider;
+use OWC\PDC\Base\Repositories\Item;
 
 /**
  * Provider which registers the FAQ section to the API.

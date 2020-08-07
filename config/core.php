@@ -8,7 +8,7 @@ return [
         /**
          * Global providers.
          */
-        OWC\PDC\FAQ\RestApi\RestAPIServiceProvider::class,
+        OWC\PDC\FAQ\RestAPI\RestAPIServiceProvider::class,
         OWC\PDC\FAQ\ElasticSearch\ElasticSearchServiceProvider::class,
 
         /**
@@ -27,5 +27,4 @@ return [
             'file'    => 'pdc-base/pdc-base.php',
         ],
     ]
-
 ];

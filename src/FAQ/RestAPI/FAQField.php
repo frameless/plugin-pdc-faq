@@ -2,7 +2,7 @@
 /**
  * Ammends the FAQ field to a PDC item.
  */
-namespace OWC\PDC\FAQ\RestApi;
+namespace OWC\PDC\FAQ\RestAPI;
 
 use OWC\PDC\Base\Support\CreatesFields;
 use WP_Post;

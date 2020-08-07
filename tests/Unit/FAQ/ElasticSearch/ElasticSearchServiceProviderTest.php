@@ -10,13 +10,12 @@ use OWC\PDC\FAQ\Tests\Unit\TestCase;
 
 class MetaboxServiceProviderTest extends TestCase
 {
-
-    public function setUp()
+    public function setUp(): void
     {
         \WP_Mock::setUp();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         \WP_Mock::tearDown();
     }
@@ -50,7 +49,9 @@ class MetaboxServiceProviderTest extends TestCase
 
         $postID = 5;
 
-        \WP_Mock::userFunction('get_post_type', [
+        \WP_Mock::userFunction(
+            'get_post_type',
+            [
             'args'   => $postID,
             'times'  => '1',
             'return' => 'pdc-item',
@@ -64,7 +65,9 @@ class MetaboxServiceProviderTest extends TestCase
             ],
         ];
 
-        \WP_Mock::userFunction('get_post_meta', [
+        \WP_Mock::userFunction(
+            'get_post_meta',
+            [
             'args'   => [
                 $postID,
                 \WP_Mock\Functions::type('string'),
@@ -76,6 +79,5 @@ class MetaboxServiceProviderTest extends TestCase
         );
 
         $this->assertEquals($expected_additional_prepared_meta, $service->registerElasticSearchMetaData($additional_prepared_meta, $postID));
-
     }
 }

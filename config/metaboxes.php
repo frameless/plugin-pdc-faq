@@ -9,6 +9,7 @@ return [
         'context'    => 'normal',
         'priority'   => 'high',
         'autosave'   => true,
+        'revision'   => true,
         'fields'     => [
             'faqs' => [
                 'group' => [
@@ -29,10 +30,10 @@ return [
                             'desc'    => __('Use of HTML is allowed', 'pdc-faq'),
                             'type'    => 'wysiwyg',
                             // Editor settings, see https://codex.wordpress.org/Function_Reference/wp_editor
-                            'options' => array(
+                            'options' => [
                                 'textarea_rows' => 4,
                                 'teeny'         => false,
-                            ),
+                            ],
                         ],
                     ],
                 ],

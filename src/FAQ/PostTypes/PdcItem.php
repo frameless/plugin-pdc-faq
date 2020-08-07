@@ -22,7 +22,7 @@ class PdcItem
      *
      * @return mixed
      */
-    public function getFaqsForRestApi($object, $field_name, $request)
+    public function getFaqsForRestAPI($object, $field_name, $request)
     {
         $faqs = get_post_meta($object['id'], self::faq_group_meta_key, true);
 

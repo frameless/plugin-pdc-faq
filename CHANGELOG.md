@@ -1,48 +1,40 @@
 # CHANGELOG
 
-## Version 3.0.1
+All notable changes to this project will be documented in this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.2] - 2020-08-07
+### Added
+-   Add revisions for FAQ entries (use [MB Revision](https://metabox.io/plugins/mb-revision/))
+
+## [3.0.1] - 2020-08-05
 ### Fix
-
 -   View content of metabox sort clone field after moving it around.
 
-## Version 3.0.0
-
+## [3.0.0] - 2020-08-04
 ### Changed
-
 -   Architecture change in the pdc-base plug-in, used as dependency, affects namespaces used
 
-## Version 2.0.3
+## [2.0.3]
+### Fix
+-   Check if required file for `is_plugin_active` is already loaded, otherwise load it. Props @Jasper Heidebrink
+### Add
+-   Remove docs in plugin, in favor of generating docs remote.
 
-### Fix:
+## [2.0.2]
+### Fix
+-   Fixed meta as object
 
--   (fix): check if required file for `is_plugin_active` is already loaded, otherwise load it. Props @Jasper Heidebrink
+## [2.0.1]
+### Fix
+-   Fix if no faq is entered, the rest api fails
 
-### Add:
-
--   (Remove): docs in plugin, in favor of generating docs remote.
-
-## Version 2.0.2
-
-### Fix:
-
--   (Fix): meta as object
-
-## Version 2.0.1
-
-### Fix:
-
--   (Fix): if no faq is entered, the rest api fails
-
-## Version 2.0.0
-
-### Features:
-
+## [2.0.0]
+### Features
 -   Add documentation
 -   Add tests
 
-## Version 1.0.0
-
-### Features:
-
+## [1.0.0]
+### Features
 -   Initial start

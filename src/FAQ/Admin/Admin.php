@@ -6,8 +6,8 @@
 
 namespace OWC\PDC\FAQ\Admin;
 
-use OWC\PDC\FAQ\Plugin\ServiceProvider;
 use OWC\PDC\FAQ\Foundation\Plugin;
+use OWC\PDC\FAQ\Plugin\ServiceProvider;
 
 /**
  * Provider which boots the admin serviceproviders.
