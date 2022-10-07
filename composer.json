@@ -12,7 +12,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@bitbucket.org:openwebconcept/plugin-pdc-base.git"
+      "url": "git@github.com:OpenWebconcept/plugin-pdc-base.git"
     }
   ],
   "require": {
@@ -22,18 +22,18 @@
   "require-dev": {
     "mockery/mockery": "*",
     "phpunit/phpunit": "~8.0",
-    "10up/wp_mock": "dev-master",
+    "10up/wp_mock": "~0.4",
     "friendsofphp/php-cs-fixer": "^2.0",
     "szepeviktor/phpstan-wordpress": "^0.6.0"
   },
   "autoload": {
     "psr-4": {
-        "OWC\\PDC\\FAQ\\": "./src/FAQ"
+      "OWC\\PDC\\FAQ\\": "./src/FAQ"
     }
   },
   "autoload-dev": {
     "psr-4": {
-        "OWC\\PDC\\FAQ\\Tests\\": "./tests"
+      "OWC\\PDC\\FAQ\\Tests\\": "./tests"
     }
   },
   "scripts": {
